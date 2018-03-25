@@ -1,0 +1,32 @@
+*{margin: 0;padding: 0;list-style: none;}
+body{margin: 0px;overflow: hidden}
+
+#canvas{background: #fff; display: block;}
+.actions{position: fixed;left: 4px;top: 4px;margin: 10px;}
+
+
+
+.actions>img {
+    padding: 5px;
+ }
+ img.active{width: 40px;height:40px;color: red}
+
+ .colors{position: fixed;left: 28px;top: 70px;}
+ .colors>li{width: 20px;height: 18px;border-radius: 50%;margin: 10px 0;transition: all 0.3s}
+ .colors>li.black{background: black} 
+ .colors>li.red{background: red}
+ .colors>li.green{background: green}
+ .colors>li.blue{background: blue}
+ .colors>li.active{transform: scale(1.2)}
+
+ .size{position: fixed;top: 45px;right: 20px;}
+ .size>li{margin: 20px 0;}
+ .size>.thin{height: 0;width: 30px;border-top: 3px solid #000;}
+ .size>.bold{height: 0;width: 30px;border-top: 6px solid #000;}
+
+ .icon {
+    width: 2em; height: 2em;
+    vertical-align: -0.15em;
+    fill: #444;
+    overflow: hidden;
+ }

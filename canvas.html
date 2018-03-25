@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0"> -->
+    <title>Cissy's canvas</title>
+    <link rel="stylesheet" href="canvas.css">
+    
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+   <div class="actions" id="actions">
+         <!-- <svg class="icon">
+            <use xlink:href="icon-20pencil" id="brush"></use>
+        </svg>
+        <svg class="icon">
+            <use xlink:href="icon-eraser" id="eraser"></use>
+        </svg> -->
+        <img src="images/pencil.png" alt="" id="brush" class="active">
+        <img src="images/eraser.png" alt="" id="eraser">
+        <svg class="icon" aria-hidden="true" id="clear">
+                <use xlink:href="#icon-cleared"></use>
+            </svg>
+    </div>
+    <ol class="colors">
+        <li class="black active" id="black"></li>
+        <li class="red" id="red"></li>
+        <li class="green" id="green"></li>
+        <li class="blue" id="blue"></li>
+    </ol>
+    <ol class="size">    
+        <li class="thin" id="thin"></li>
+        <li class="bold" id="bold"></li>
+    </ol>
+    <script src="scripts/canvasPhone.js"></script>
+    <script src="//at.alicdn.com/t/font_604264_lrxod9ua9va8xgvi.js"></script>
+</body>
+</html>
