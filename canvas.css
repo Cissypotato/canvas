@@ -1,7 +1,7 @@
 *{margin: 0;padding: 0;list-style: none;}
 body{margin: 0px;overflow: hidden}
 
-#canvas{background: #fff; display: block;}
+#canvas{background: #fff; display: block;position: fixed;top: 0;left: 0;}
 .actions{position: fixed;left: 4px;top: 4px;margin: 10px;}
 
 
