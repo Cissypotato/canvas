@@ -35,7 +35,7 @@ var blue=document.getElementById('blue')
 black.onclick=function(){
     context.fillstyle="black"
     context.strokeStyle='black'
-    balck.classList.add('active')
+    black.classList.add('active')
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.remove('active')
@@ -71,11 +71,9 @@ var bold=document.getElementById('bold');
 var thin=document.getElementById('thin');
 thin.onclick=function(){
     lineWidth=5
-    console.log('b')
 }
 bold.onclick=function(){
     lineWidth=10
-    console.log('a')
     
 }
 
@@ -83,6 +81,18 @@ bold.onclick=function(){
 var clear=document.getElementById('clear')
 clear.onclick=function(){
     context.clearRect(0,0,canvas.width,canvas.height)
+}
+
+var download=document.getElementById('download')
+download.onclick=function(){
+    var url=canvas.toDataURL("image/png")
+    var a=document.createElement('a')
+    var actions=document.getElementById('actions')
+    actions.appendChild(a);
+    a.href=url
+    a.target='_blank'
+    a.download='我的创作'
+    a.click();
 }
 /*******监听触屏事件 */
 function listenToTouch(canvas){
