@@ -19,8 +19,8 @@ var brush=document.getElementById('brush');
 var eraserEnabled=false;
 eraser.onclick=function(){
     eraserEnabled=true;
-   eraser.classList.add("active")
-   brush.classList.remove("active")
+    eraser.classList.add("active")
+    brush.classList.remove("active")
 }
 brush.onclick=function(){
     eraserEnabled=false;
@@ -28,42 +28,54 @@ brush.onclick=function(){
     eraser.classList.remove("active")
 }
 
-var black=document.getElementById('black')
-var red=document.getElementById('red')
-var green=document.getElementById('green')
-var blue=document.getElementById('blue')
-black.onclick=function(){
-    context.fillstyle="black"
-    context.strokeStyle='black'
-    black.classList.add('active')
-    red.classList.remove('active')
-    green.classList.remove('active')
-    blue.classList.remove('active')
+//画笔颜色的调整
+var colors=document.querySelectorAll('.colors>li')
+for(var i=0;i<colors.length;i++){
+    colors[i].onclick=function(e){
+        var id=e.currentTarget.id
+        context.fillstyle=id
+        context.strokeStyle=id
+        e.currentTarget.classList.add('active')
+        removeSiblingsClass(e.currentTarget)
+    }
 }
-red.onclick=function(){
-    context.fillstyle="red"
-    context.strokeStyle='red'
-    red.classList.add('active')
-    green.classList.remove('active')
-    blue.classList.remove('active')
-    black.classList.remove('active')
-}
-green.onclick=function(){
-    context.fillstyle="green"
-    context.strokeStyle='green'
-    red.classList.remove('active')
-    green.classList.add('active')
-    blue.classList.remove('active')
-    black.classList.remove('active')
-}
-blue.onclick=function(){
-    context.fillstyle="blue"
-    context.strokeStyle='blue'
-    red.classList.remove('active')
-    green.classList.remove('active')
-    blue.classList.add('active')
-    black.classList.remove('active')
-}
+
+// var black=document.getElementById('black')
+// var red=document.getElementById('red')
+// var green=document.getElementById('green')
+// var blue=document.getElementById('blue')
+// black.onclick=function(){
+//     context.fillstyle="black"
+//     context.strokeStyle='black'
+//     black.classList.add('active')
+//     red.classList.remove('active')
+//     green.classList.remove('active')
+//     blue.classList.remove('active')
+// }
+// red.onclick=function(){
+//     context.fillstyle="red"
+//     context.strokeStyle='red'
+//     red.classList.add('active')
+//     green.classList.remove('active')
+//     blue.classList.remove('active')
+//     black.classList.remove('active')
+// }
+// green.onclick=function(){
+//     context.fillstyle="green"
+//     context.strokeStyle='green'
+//     red.classList.remove('active')
+//     green.classList.add('active')
+//     blue.classList.remove('active')
+//     black.classList.remove('active')
+// }
+// blue.onclick=function(){
+//     context.fillstyle="blue"
+//     context.strokeStyle='blue'
+//     red.classList.remove('active')
+//     green.classList.remove('active')
+//     blue.classList.add('active')
+//     black.classList.remove('active')
+// }
 
 
 var lineWidth=5;
@@ -153,9 +165,9 @@ function listenToMouse(canvas){
         }else{
             var newPoint={'x':x,'y':y}
         }
-            drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
-            lastPoint=newPoint
-        }
+        drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
+        lastPoint=newPoint
+    }
     
     
     canvas.onmouseup =function(aaa){
@@ -197,5 +209,15 @@ function autoSetCanvasSize(canvas){
         var pageHeight=document.documentElement.clientHeight;
         canvas.width=pageWidth;
         canvas.height=pageHeight;
+    }
+}
+//由于原生js没有获取所有兄弟元素的api，所以写了个移除所有兄弟元素一个class的函数
+function removeSiblingsClass(ele){
+    var children = ele.parentNode.children;
+    var siblings= [].filter.call(children, function(child) {
+      return child !== ele;
+    });
+    for(var i=0;i<siblings.length;i++){
+            siblings[i].classList.remove('active')
     }
 }

@@ -38,7 +38,7 @@ function listenToMouse(canvas){
             lastPoint={'x':x,'y':y}
         }
         
-        // drawCircle(x,y,10)//圆
+        drawCircle(x,y,10)//圆
     
     
     }
@@ -57,7 +57,7 @@ function listenToMouse(canvas){
             // divA.style="width:6px;height:6px;background:black;border-radius:50%;position:absolute;left:"+(x-3)+"px;"
             // +"top:"+(y-3)+"px;";
             // canvas.appendChild(divA);//div画圆
-            // drawCircle(x,y,10)//圆
+            drawCircle(x,y,10)//圆
             drawLine(lastPoint.x,lastPoint.y,newPoint['x'],newPoint['y']);
             lastPoint=newPoint
         }
