@@ -1,6 +1,6 @@
 var canvas=document.getElementById('canvas'); 
 var context=canvas.getContext('2d');
-context.fillStyle="#000"
+var circleRadius=2
 
 if(document.body.ontouchstart!==undefined){
     listenToTouch(canvas);
@@ -9,7 +9,7 @@ if(document.body.ontouchstart!==undefined){
     listenToMouse(canvas);
     autoSetCanvasSize(canvas);
 }
-
+setFillStyle()
 
 
 
@@ -84,9 +84,11 @@ var bold=document.getElementById('bold');
 var thin=document.getElementById('thin');
 thin.onclick=function(){
     lineWidth=5
+    circleRadius=2
 }
 bold.onclick=function(){
     lineWidth=10
+    circleRadius=5
     
 }
 
@@ -116,7 +118,9 @@ function listenToTouch(canvas){
         var x=aaa.touches[0].clientX;
         var y=aaa.touches[0].clientY;
         if(eraserEnabled){
+            
             context.clearRect(x-5,y-5,10,10)
+            drawCircle(x,y,circleRadius)
         }else{
             lastPoint={'x':x,'y':y}
         }
@@ -130,10 +134,11 @@ function listenToTouch(canvas){
             context.clearRect(x-5,y-5,10,10) 
         }else{
             var newPoint={'x':x,'y':y}
-        }
-           
             drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
+            drawCircle(x,y,circleRadius)
             lastPoint=newPoint
+        }            
+           
         }
     
     
@@ -155,7 +160,7 @@ function listenToMouse(canvas){
             context.clearRect(x-5,y-5,10,10)
         }else{
             lastPoint={'x':x,'y':y}
-            drawCircle(x,y,2)
+            drawCircle(x,y,circleRadius)
         }
     }
     canvas.onmousemove=function(aaa){
@@ -166,9 +171,8 @@ function listenToMouse(canvas){
             context.clearRect(x-5,y-5,10,10) 
         }else{
             var newPoint={'x':x,'y':y}
-            
             drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
-            drawCircle(x,y,2)
+            drawCircle(x,y,circleRadius)
            
         }
         lastPoint=newPoint
@@ -227,4 +231,8 @@ function removeSiblingsClass(ele){
     for(var i=0;i<siblings.length;i++){
             siblings[i].classList.remove('active')
     }
+}
+//设置默认fillStyle
+function setFillStyle(){
+    context.fillStyle="#000"
 }
