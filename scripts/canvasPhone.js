@@ -1,6 +1,6 @@
 var canvas=document.getElementById('canvas'); 
 var context=canvas.getContext('2d');
-
+context.fillStyle="#000"
 
 if(document.body.ontouchstart!==undefined){
     listenToTouch(canvas);
@@ -33,7 +33,8 @@ var colors=document.querySelectorAll('.colors>li')
 for(var i=0;i<colors.length;i++){
     colors[i].onclick=function(e){
         var id=e.currentTarget.id
-        context.fillstyle=id
+        context.fillStyle=id
+        console.log(context.fillStyle)
         context.strokeStyle=id
         e.currentTarget.classList.add('active')
         removeSiblingsClass(e.currentTarget)
@@ -154,6 +155,7 @@ function listenToMouse(canvas){
             context.clearRect(x-5,y-5,10,10)
         }else{
             lastPoint={'x':x,'y':y}
+            drawCircle(x,y,2)
         }
     }
     canvas.onmousemove=function(aaa){
@@ -164,8 +166,11 @@ function listenToMouse(canvas){
             context.clearRect(x-5,y-5,10,10) 
         }else{
             var newPoint={'x':x,'y':y}
+            
+            drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
+            drawCircle(x,y,2)
+           
         }
-        drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
         lastPoint=newPoint
     }
     
@@ -209,6 +214,8 @@ function autoSetCanvasSize(canvas){
         var pageHeight=document.documentElement.clientHeight;
         canvas.width=pageWidth;
         canvas.height=pageHeight;
+        context.fillStyle="#fff"
+        context.fillRect(0,0,pageWidth,pageHeight)
     }
 }
 //由于原生js没有获取所有兄弟元素的api，所以写了个移除所有兄弟元素一个class的函数
