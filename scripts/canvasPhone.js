@@ -132,7 +132,7 @@ function listenToTouch(canvas){
             
         }else{
             lastPoint={'x':x,'y':y}
-            drawCircle(x,y,circleRadius)
+            
         }
     
     }
@@ -145,7 +145,6 @@ function listenToTouch(canvas){
         }else{
             var newPoint={'x':x,'y':y}
             drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint['y']);
-            drawCircle(x,y,circleRadius)
             lastPoint=newPoint
         }            
            
