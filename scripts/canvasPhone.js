@@ -21,21 +21,23 @@ eraser.onclick=function(){
     eraserEnabled=true;
     eraser.classList.add("active")
     brush.classList.remove("active")
+    removeColorsActive()
+
 }
 brush.onclick=function(){
     eraserEnabled=false;
     brush.classList.add("active");
     eraser.classList.remove("active")
+    colors[0].classList.add('active')
 }
 
 //画笔颜色的调整
 var colors=document.querySelectorAll('.colors>li')
 for(var i=0;i<colors.length;i++){
     colors[i].onclick=function(e){
-        var id=e.currentTarget.id
-        context.fillStyle=id
-        console.log(context.fillStyle)
-        context.strokeStyle=id
+        var color=e.currentTarget.getAttribute('data-color')
+        context.fillStyle=color
+        context.strokeStyle=color
         e.currentTarget.classList.add('active')
         removeSiblingsClass(e.currentTarget)
     }
@@ -85,10 +87,14 @@ var thin=document.getElementById('thin');
 thin.onclick=function(){
     lineWidth=5
     circleRadius=2
+    thin.classList.add('active')
+    bold.classList.remove('active')
 }
 bold.onclick=function(){
     lineWidth=10
     circleRadius=5
+    thin.classList.remove('active')
+    bold.classList.add('active')
     
 }
 
@@ -231,6 +237,12 @@ function removeSiblingsClass(ele){
     for(var i=0;i<siblings.length;i++){
             siblings[i].classList.remove('active')
     }
+}
+//移除所有颜色的active
+function removeColorsActive(){
+    for(var i=0;i<colors.length;i++){
+        colors[i].classList.remove('active')
+}
 }
 //设置默认fillStyle
 function setFillStyle(){

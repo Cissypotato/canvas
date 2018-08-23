@@ -11,18 +11,30 @@ body{overflow: hidden;background: green;}
  }
  img.active{width: 40px;height:40px;color: red}
 
- .colors{position: fixed;left: 28px;top: 70px;}
- .colors>li{width: 20px;height: 18px;border-radius: 50%;margin: 10px 0;transition: all 0.3s}
+ .colors{position: fixed;left: 28px;top: 70px;width: 50px;display: flex;
+    justify-content: space-between;flex-wrap: wrap}
+ .colors>li{width: 20px;height: 20px;margin: 6px 0;border-radius: 50%;transition: all 0.3s;box-shadow: black}
  .colors>li.black{background: black} 
  .colors>li.red{background: red}
  .colors>li.green{background: green}
  .colors>li.blue{background: blue}
+ .colors>li.ba{background: #755b2a}
+ .colors>li.df{background: #d78f3f}
+ .colors>li.fe{background: #fed182}
+ .colors>li.b{background: #433b23}
+ .colors>li.ab{background: #2a384b}
+ .colors>li.c{background: #c89927}
+ .colors>li.a{background: #68552a}
+ .colors>li.bb{background: #9b785b}
+
  .colors>li.active{transform: scale(1.2)}
 
  .size{position: fixed;top: 45px;right: 20px;}
  .size>li{margin: 20px 0;}
- .size>.thin{height: 0;width: 30px;border-top: 5px solid #000;}
- .size>.bold{height: 0;width: 30px;border-top: 10px solid #000;}
+ .size>.thin{height: 0;width: 30px;height:6px;background:#000;}
+ .size>.thin.active{border:2px solid pink}
+ .size>.bold{height: 0;width: 30px;height:10px;background:#000;}
+ .size>.bold.active{border:2px solid pink}
 
  .icon {
     width: 2em; height: 2em;
