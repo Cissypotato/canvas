@@ -5,11 +5,13 @@ var circleRadius=2
 if(document.body.ontouchstart!==undefined){
     listenToTouch(canvas);
     autoSetCanvasSize(canvas);
+    context.fillStyle="#000"
 }else{
     listenToMouse(canvas);
     autoSetCanvasSize(canvas);
+    context.fillStyle="#000"
 }
-setFillStyle()
+// setFillStyle()
 
 
 
@@ -114,6 +116,7 @@ download.onclick=function(){
     a.target='_blank'
     a.download='我的创作'
     a.click();
+    
 }
 /*******监听触屏事件 */
 function listenToTouch(canvas){
