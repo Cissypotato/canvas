@@ -93,8 +93,8 @@ thin.onclick=function(){
     bold.classList.remove('active')
 }
 bold.onclick=function(){
-    lineWidth=10
-    circleRadius=5
+    lineWidth=8
+    circleRadius=4
     thin.classList.remove('active')
     bold.classList.add('active')
     
@@ -246,8 +246,4 @@ function removeColorsActive(){
     for(var i=0;i<colors.length;i++){
         colors[i].classList.remove('active')
 }
-}
-//设置默认fillStyle
-function setFillStyle(){
-    context.fillStyle="#000"
 }
