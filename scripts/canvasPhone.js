@@ -129,9 +129,10 @@ function listenToTouch(canvas){
         if(eraserEnabled){
             
             context.clearRect(x-5,y-5,10,10)
-            drawCircle(x,y,circleRadius)
+            
         }else{
             lastPoint={'x':x,'y':y}
+            drawCircle(x,y,circleRadius)
         }
     
     }
