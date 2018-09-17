@@ -31,9 +31,9 @@ body{overflow: hidden;background: green;}
 
  .size{position: fixed;top: 45px;right: 20px;}
  .size>li{margin: 20px 0;}
- .size>.thin{height: 0;width: 30px;height:6px;background:#000;}
+ .size>.thin{height: 0;width: 30px;height:6px;background:#000;border:2px solid #fff}
  .size>.thin.active{border:2px solid pink}
- .size>.bold{height: 0;width: 30px;height:10px;background:#000;}
+ .size>.bold{height: 0;width: 30px;height:10px;background:#000;border:2px solid #fff}
  .size>.bold.active{border:2px solid pink}
 
  .icon {
