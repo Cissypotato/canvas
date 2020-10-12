@@ -30,7 +30,11 @@ brush.onclick=function(){
     eraserEnabled=false;
     brush.classList.add("active");
     eraser.classList.remove("active")
+    var color=colors[0].getAttribute('data-color')
+    context.fillStyle=color
+    context.strokeStyle=color
     colors[0].classList.add('active')
+    removeSiblingsClass(colors[0])
 }
 
 //画笔颜色的调整
@@ -108,6 +112,17 @@ clear.onclick=function(){
 
 var download=document.getElementById('download')
 download.onclick=function(){
+    var url=canvas.toDataURL("image/png")
+    var a=document.createElement('a')
+    var actions=document.getElementById('actions')
+    actions.appendChild(a);
+    a.href=url
+    a.target='_blank'
+    a.download='我的创作'
+    a.click();
+    
+}
+download.ontouchend=function(){
     var url=canvas.toDataURL("image/png")
     var a=document.createElement('a')
     var actions=document.getElementById('actions')
